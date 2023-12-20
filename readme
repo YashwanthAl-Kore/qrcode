@@ -1,0 +1,29 @@
+*Details stored in DB will get cleared every 10 minutes*
+
+*GET*     /api?data=www.google.com    (get svg of QR code of passed data)
+    returns SVG of www.google.com
+
+
+*GET*     /api/qr?id={UUID}           (get html page of QR code of data in DB with UUID)
+    returns html page with qr code
+
+*POST*    /api/qr?id={UUID}           (get data saved in DB with UUID)
+    body {"UUID": "c21d96a8-da86-448b-8701-698431bdb098"}
+    returns {"url":"www.google.com"}
+
+*DELETE*  /api/data                   (delete data in DB)
+    body {"UUIDs": "a0f09b09-ca35-460b-88d0-168091aa3c74"}
+    returns Deleted sys-bf5aa4a8-8fc8-5e5c-823e-80566903f009
+
+*POST*    /qrcode                     (to save details in DB)
+    body    {"url":"www.google.com"}
+    returns  {host}/api/qr?id={UUID}
+
+
+**Tony trevi**
+
+*POST*    /qrcode     To get a URL of QR code (UUID will be generated which will be stored for specifies amount of time)
+    body    {"url":"www.google.com","paymentDetails":{"subtotal":27.99,"discount":5.49,"tax":2,"Total":24.5}}
+
+*GET*     /qrcode?id={UUID}   gets toni tevi qr code webpage
+
